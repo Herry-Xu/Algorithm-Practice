@@ -25,6 +25,30 @@ public class LinkedList{
 
 	}
 
+	public void reverseIterative(){
+		Node current = head;
+		Node prev = null;
+		Node next;
+		while (current != null){
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		head = prev;
+	}
+
+	public void reverseRecursion(Node node){
+		if (node.next == null){
+			head = node;
+			return;
+		}
+		reverseRecursion(node.next);
+		Node current = node.next;
+		current.next = node;
+		node.next = null;
+	}
+
 	public void deleteAtN(int position){
 		Node current = head;
 		Node temp1;
