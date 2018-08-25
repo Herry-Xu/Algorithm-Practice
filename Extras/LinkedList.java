@@ -11,7 +11,7 @@ public class LinkedList{
 
 		Node current = head;
 		Node newNode = new Node(data);
-		if (position == 2) {
+		if (position == 0) {
 			newNode.next = head;
 			head = newNode;
 			return;
@@ -22,6 +22,22 @@ public class LinkedList{
 		}
 		newNode.next = current.next;
 		current.next = newNode; 
+
+	}
+
+	public void deleteAtN(int position){
+		Node current = head;
+		Node temp1;
+		if (position == 0){
+			head = current.next;
+			current.next = null;
+		}
+		for (int i = 0; i < position - 2; i++){
+			current = current.next;
+		}
+		temp1 = current.next;
+		current.next = current.next.next;
+		temp1.next = null;
 
 	}
 
